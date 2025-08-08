@@ -9,7 +9,12 @@
 
 :root {
   --primary-color: #2563eb;
-  --linear-color: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+  --linear-color: linear-gradient(
+    90deg,
+    #2563eb 0%,
+    #1e40af 45%,
+    rgba(37, 99, 235, 0.3) 100%
+  );
   --text-color: #374151;
   --background-color: #f3f4f6;
 }

@@ -8,16 +8,59 @@
         <link rel="stylesheet" href="./assets/css/main.css">
         <script
             src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     </head>
 
     <body>
-        <header>
-            <nav>Navbar</nav>
+        <header data-aos="fade-down" data-aos-duration="1000">
+            <nav
+                class="h-full flex justify-between items-center px-10 md:px-[100px] ">
+                <a href="#">
+                    <img src="./assets/img/rtik.png" alt="logo rtik">
+                </a>
+                <div class="nav-link nav-desktop hidden md:flex gap-4">
+                    <a href="#about">Tentang Kami</a>
+                    <a href="#anggota">Anggota</a>
+                    <a href="#kegiatan">Kegiatan</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contact">Kontak</a>
+                </div>
+                <div class="nav-mobile flex justify-end md:hidden">
+                    <img src="./assets/img/menu.svg" alt="manu" class="w-8 h-8"
+                        id="menu-toggle">
+                    <div class="nav-link nav-mobile-menu">
+                        <a href="#about">Tentang Kami</a>
+                        <a href="#anggota">Anggota</a>
+                        <a href="#kegiatan">Kegiatan</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="#contact">Kontak</a>
+                    </div>
+                </div>
+            </nav>
         </header>
         <main>
             <!-- Start Hero -->
-            <section id="hero">
-                <h1>Hero</h1>
+            <section id="hero" class="relative h-[100dvh] overflow-hidden">
+                <div class="hero-bg absolute inset-0"></div>
+                <img src="./assets/img/hero-bg.png" alt="hero-bg"
+                    class="h-full w-full object-cover">
+                <div class="absolute top-1/2 transform -translate-y-1/2 px-10 left-0 md:left-[100px] md:-translate-x-0 z-10 text-white"
+                    data-aos="fade-up" data-aos-duration="1000">
+                    <div>
+                        <h1 class="text-5xl md:text-5xl font-bold">Relawan
+                            TIK
+                            Komisariat<br />
+                            Universitas Metamedia</h1>
+                        <p class="text-2xl sm:text-xl max-w-[100dvw] ">“Salam
+                            Relawan, Salam Teknologi”</p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#contact"
+                            class="border-2 border-white rounded-md font-bold px-6 py-4">Daftar
+                            Sekarang</a>
+                    </div>
+                </div>
             </section>
             <!-- End Hero -->
 
@@ -58,5 +101,10 @@
             <!-- End Footer -->
         </main>
     </body>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="./assets/js/script.js"></script>
 
 </html>
