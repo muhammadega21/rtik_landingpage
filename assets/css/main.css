@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800&display=swap");
+@import "hero.css";
+@import "about.css";
+@import "anggota.css";
+@import "kegiatan.css";
+@import "faq.css";
+@import "contact.css";
+@import "footer.css";
+
+:root {
+  --primary-color: #2563eb;
+  --linear-color: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+  --text-color: #374151;
+  --background-color: #f3f4f6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+section {
+  min-height: 100dvh;
+}
+
+section:nth-child(even) {
+  background-color: #f9fafb;
+}
