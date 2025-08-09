@@ -6,6 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Relawan TIK Komisariat Universitas Metamedia</title>
         <link rel="stylesheet" href="./assets/css/main.css">
+        <link rel="stylesheet" href="./assets/css/kegiatan.css">
+        <link rel="stylesheet" href="./assets/css/faq.css">
+        <link rel="stylesheet" href="./assets/css/contact.css">
+        <script src="./assets/js/script.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     </head>
@@ -16,39 +22,173 @@
         </header>
         <main>
             <!-- Start Hero -->
-            <section id="hero">
-                <h1>Hero</h1>
-            </section>
-            <!-- End Hero -->
+<section class="kegiatan">
+    <h2 class="section-title">Kegiatan Kami</h2>
 
-            <!-- Start About -->
-            <section id="about">
-                <h1>About</h1>
-            </section>
-            <!-- End About -->
+    <div class="cards" id="cards-container">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-img">img</div>
+            <div class="card-content">
+                <span class="date">15 Juli 2025</span>
+                <h3>Goes To School SMA Don Bosco</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+        </div>
 
-            <!-- Start Anggota -->
-            <section id="anggota">
-                <h1>Anggota</h1>
-            </section>
-            <!-- End Anggota -->
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-img">img</div>
+            <div class="card-content">
+                <span class="date">15 Juli 2025</span>
+                <h3>Goes To School SMA Don Bosco</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+        </div>
 
-            <!-- Start Kegiatan -->
-            <section id="kegiatan">
-                <h1>Kegiatan</h1>
-            </section>
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="card-img">img</div>
+            <div class="card-content">
+                <span class="date">15 Juli 2025</span>
+                <h3>Goes To School SMA Don Bosco</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card hidden">
+            <div class="card-img">img</div>
+            <div class="card-content">
+                <span class="date">16 Juli 2025</span>
+                <h3>Kegiatan Sosial Desa</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card hidden">
+            <div class="card-img">img</div>
+            <div class="card-content">
+                <span class="date">17 Juli 2025</span>
+                <h3>Workshop Digital</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card hidden">
+            <div class="card-img">img</div>
+            <div class="card-content">
+                <span class="date">18 Juli 2025</span>
+                <h3>Festival Sekolah</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-wrapper">
+        <button class="btn-more" id="load-more">See More</button>
+    </div>
+</section>
+
+
             <!-- End Kegiatan -->
 
             <!-- Start FAQ -->
-            <section id="faq">
-                <h1>FAQ</h1>
-            </section>
+        <section class="faq-section">
+    <h2 class="section-title">Pertanyaan Umum</h2>
+
+    <div class="faq-item">
+        <button class="faq-question">
+            Siapa yang bisa bergabung dengan Relawan TIK?
+            <span class="arrow">&#9662;</span>
+        </button>
+        <div class="faq-answer">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">
+            Apakah ada biaya keanggotaan?
+            <span class="arrow">&#9662;</span>
+        </button>
+        <div class="faq-answer">
+            <p>Tidak ada biaya keanggotaan untuk bergabung dengan Relawan TIK.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">
+            Apa keuntungan bergabung Relawan TIK?
+            <span class="arrow">&#9662;</span>
+        </button>
+        <div class="faq-answer">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+</section>
+
             <!-- End FAQ -->
 
             <!-- Start Contact -->
-            <section id="contact">
-                <h1>Kontak</h1>
-            </section>
+         <!-- ===== Hubungi Kami ===== -->
+<section class="contact-section">
+    <h2 class="section-title">Hubungi Kami</h2>
+    <div class="contact-container">
+
+        <!-- Informasi Kontak -->
+        <div class="contact-card">
+            <h3>Informasi Kontak</h3>
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Telepon</strong><br>
+                        +62 812-3456-7890
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong><br>
+                        rtik@metamedia.ac.id
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Alamat</strong><br>
+                        Jl. Khatib Sulaiman Kel No.1,<br>
+                        RT.004/RW.006, Lolong Belanti,<br>
+                        Kec. Padang Utara, Kota Padang,<br>
+                        Sumatera Barat 25173
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Kirim Pesan -->
+        <div class="contact-card">
+            <h3>Kirim Pesan</h3>
+            <form class="contact-form">
+                <label for="name">Nama Anda</label>
+                <input type="text" id="name" name="name" placeholder="Nama lengkap" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Alamat email" required>
+
+                <label for="message">Pesan</label>
+                <textarea id="message" name="message" placeholder="Tulis pesan anda" required></textarea>
+
+                <button type="submit">Kirim</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
             <!-- End Contact -->
 
             <!-- Start Footer -->
