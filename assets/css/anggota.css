@@ -1,0 +1,48 @@
+.anggota .card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem 1rem;
+}
+
+.anggota .card {
+  flex: 0 1 250px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.anggota .card .card-head {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.anggota .card .card-head img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.anggota .card .card-body {
+  background: #fff;
+  height: 100%;
+  padding: 20px 30px;
+  text-align: left;
+}
+
+.anggota .card .card-body .card-title {
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.anggota .card .card-body h3 {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.anggota .card .card-body span {
+  font-size: 15px;
+  color: var(--primary-color);
+}
