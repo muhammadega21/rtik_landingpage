@@ -1,78 +1,51 @@
-/* ===== FAQ Section ===== */
-.faq-section {
-    padding: 40px 20px;
-    text-align: center;
-    background: #f3f4f6; /* sama seperti latar kegiatan */
-}
-
-/* Judul Section */
-.faq-section .section-title {
-    font-size: 24px;
-    font-weight: bold;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 30px;
-}
-
-.faq-section .section-title::after {
-    content: "";
-    display: block;
-    width: 50%;
-    height: 3px;
-    background: #2563eb;
-    margin: 0 auto;
-    border-radius: 2px;
-}
-
 /* Item FAQ */
 .faq-item {
-    background: white;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    overflow: hidden;
-    text-align: left;
-    transition: border-radius 0.3s ease;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  text-align: left;
+  transition: border-radius 0.3s ease;
 }
 
 /* Pertanyaan */
 .faq-question {
-    background: none;
-    border: none;
-    width: 100%;
-    text-align: left;
-    padding: 15px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    outline: none;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  outline: none;
 }
 
 /* Jawaban */
 .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    font-size: 14px;
-    color: #555;
-    border-top: 1px solid #e5eaf0; /* garis tipis pemisah */
-    transition: max-height 0.4s ease, padding 0.4s ease;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #e5eaf0; /* garis tipis pemisah */
+  transition: max-height 0.4s ease, padding 0.4s ease;
 }
 
 .faq-item.active .faq-answer {
-    max-height: 300px;
-    padding: 15px 20px;
+  max-height: 300px;
+  padding: 15px 20px;
 }
 
 /* Icon Panah */
 .arrow {
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .faq-item.active .arrow {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }

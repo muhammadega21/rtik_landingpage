@@ -1,102 +1,75 @@
-/* ===== Hubungi Kami Section ===== */
-.contact-section {
-    padding: 40px 20px;
-    text-align: center;
-    background: #f3f4f6; /* konsisten dengan kegiatan & faq */
-}
-
-/* Judul Section */
-.contact-section .section-title {
-    font-size: 24px;
-    font-weight: bold;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 30px;
-}
-
-.contact-section .section-title::after {
-    content: "";
-    display: block;
-    width: 50%;
-    height: 3px;
-    background: #2563eb;
-    margin: 0 auto;
-    border-radius: 2px;
-}
-
 /* Layout Konten */
 .contact-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 /* Card */
 .contact-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    padding: 20px;
-    flex: 1 1 300px;
-    max-width: 380px;
-    text-align: left;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  flex: 1 1 300px;
+  max-width: 380px;
+  text-align: left;
 }
 
 /* Info Kontak */
 .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .contact-info-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
 }
 
 .contact-info-item i {
-    font-size: 20px;
-    color: #2563eb;
-    flex-shrink: 0;
+  font-size: 20px;
+  color: #2563eb;
+  flex-shrink: 0;
 }
 
 /* Form */
 .contact-form label {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
 }
 
 .contact-form input,
 .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #d1d5db;
-    border-radius: 5px;
-    margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
 
 .contact-form textarea {
-    resize: none;
-    height: 100px;
+  resize: none;
+  height: 100px;
 }
 
 .contact-form button {
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.2s;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
 .contact-form button:hover {
-    background: #1e40af;
+  background: #1e40af;
 }
