@@ -2,19 +2,28 @@
 .contact-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 40px;
   justify-content: center;
+  align-items: flex-start;
+  margin-top: 30px;
 }
 
-/* Card */
+/* Card Umum */
 .contact-card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  flex: 1 1 300px;
-  max-width: 380px;
-  text-align: left;
+  background: #f9fafb; /* beda dari putih polos */
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 30px 25px;
+  flex: 1 1 360px;
+  max-width: 420px;
+}
+
+/* Judul */
+.contact-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #111827;
 }
 
 /* Info Kontak */
@@ -26,48 +35,68 @@
 
 .contact-info-item {
   display: flex;
-  align-items: flex-start;
-  gap: 15px;
+  align-items: center;
+  gap: 12px;
 }
 
 .contact-info-item i {
-  font-size: 20px;
+  font-size: 22px;
   color: #2563eb;
+  background: #e0e7ff;
+  padding: 10px;
+  border-radius: 50%;
   flex-shrink: 0;
+}
+
+.contact-info-item span {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #374151;
 }
 
 /* Form */
 .contact-form label {
   font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-weight: 600;
+  margin-bottom: 6px;
   display: block;
+  color: #374151;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px 14px;
   font-size: 14px;
   border: 1px solid #d1d5db;
-  border-radius: 5px;
-  margin-bottom: 15px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  background: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
 }
 
 .contact-form textarea {
   resize: none;
-  height: 100px;
+  height: 120px;
 }
 
 .contact-form button {
+  width: 100%;
   background: #2563eb;
   color: white;
   border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.25s;
 }
 
 .contact-form button:hover {

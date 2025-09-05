@@ -49,3 +49,12 @@
 .faq-item.active .arrow {
   transform: rotate(180deg);
 }
+.arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .arrow {
+  transform: rotate(180deg);
+}
