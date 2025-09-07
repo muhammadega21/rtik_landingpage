@@ -1,83 +1,150 @@
-.kegiatan .cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+/* ====== Kegiatan Section ====== */
+.kegiatan {
+  padding: 80px 20px;
+  background: #f9fafb;
+  text-align: center;
 }
 
+.kegiatan .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.kegiatan .section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: #2563eb; /* biru */
+  border-radius: 2px;
+}
+
+/* ====== Cards Grid ====== */
+.kegiatan .cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card Style */
 .kegiatan .card {
-  background: white;
-  border-radius: 8px;
-  width: 300px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   text-align: left;
-  transition: transform 0.2s, opacity 0.4s ease, transform 0.4s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 1;
-}
-
-.kegiatan .card.hidden {
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
-}
-
-.kegiatan .card.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  transform: scale(1);
 }
 
 .kegiatan .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
+/* Card Image */
 .kegiatan .card-img {
-  background: #d1d5db;
-  height: 150px;
+  background: #e5e7eb;
+  color: #555;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: gray;
-  font-size: 14px;
+  font-weight: 600;
 }
 
+/* Card Content */
 .kegiatan .card-content {
-  padding: 15px;
+  padding: 20px;
 }
 
 .kegiatan .card-content .date {
-  font-size: 12px;
-  color: gray;
+  font-size: 0.9rem;
+  color: #6b7280;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .kegiatan .card-content h3 {
-  font-size: 16px;
-  margin: 5px 0 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #111827;
 }
 
 .kegiatan .card-content p {
-  font-size: 14px;
-  color: #555;
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.5;
 }
 
-.button-wrapper {
-  margin-top: 20px;
+/* ====== Hidden / Show Animation ====== */
+.kegiatan .card.hidden {
+  display: none;
 }
 
-.btn-more {
+.kegiatan .card.show {
+  display: block;
+  animation: fadeInScale 0.5s ease forwards;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ====== Button Wrapper ====== */
+.kegiatan .button-wrapper {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.kegiatan .btn-more,
+.kegiatan .btn-less {
   background: #2563eb;
-  color: white;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
   border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.3s ease;
 }
 
-.btn-more:hover {
+.kegiatan .btn-more:hover,
+.kegiatan .btn-less:hover {
   background: #1e40af;
+}
+
+.kegiatan .btn-less.hidden {
+  display: none;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 1024px) {
+  .kegiatan .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .kegiatan .cards {
+    grid-template-columns: 1fr;
+  }
 }

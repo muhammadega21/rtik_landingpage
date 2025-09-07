@@ -94,43 +94,52 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// FAQ
+// bagian faq
 document.addEventListener("DOMContentLoaded", function () {
+  // === FAQ ===
   const faqItems = document.querySelectorAll(".faq-item");
-
   faqItems.forEach((item) => {
     const question = item.querySelector(".faq-question");
-
     question.addEventListener("click", () => {
       // Tutup semua sebelum buka yang diklik
       faqItems.forEach((i) => {
         if (i !== item) i.classList.remove("active");
       });
-
       // Toggle item aktif
       item.classList.toggle("active");
     });
   });
+
+// === Kegiatan: See More / See Less ===
+const loadMoreBtn = document.getElementById("load-more");
+const seeLessBtn = document.getElementById("see-less");
+
+if (loadMoreBtn && seeLessBtn) {
+  loadMoreBtn.addEventListener("click", () => {
+    const hiddenCards = document.querySelectorAll(".card.hidden"); // ambil ulang
+    hiddenCards.forEach((card, i) => {
+      setTimeout(() => {
+        card.classList.remove("hidden");
+        card.classList.add("show");
+      }, i * 120);
+    });
+    loadMoreBtn.style.display = "none";
+    seeLessBtn.style.display = "inline-block";
+  });
+
+  seeLessBtn.addEventListener("click", () => {
+    const allCards = document.querySelectorAll(".card"); // ambil semua card
+    allCards.forEach((card, index) => {
+      if (index >= 3) { // biar 3 card pertama tetap tampil
+        card.classList.remove("show");
+        card.classList.add("hidden");
+      }
+    });
+    seeLessBtn.style.display = "none";
+    loadMoreBtn.style.display = "inline-block";
+
+    // scroll balik ke atas section
+    document.getElementById("kegiatan").scrollIntoView({ behavior: "smooth" });
+  });
+}
 });
-
-
-
-// bagian animate on scroll
-document.addEventListener("DOMContentLoaded", function () {
-  const animatedSections = document.querySelectorAll(".animate");
-
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          obs.unobserve(entry.target); // biar animasi cuma sekali
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  animatedSections.forEach((section) => observer.observe(section));
-});
-

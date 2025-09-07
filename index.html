@@ -14,8 +14,6 @@
         <script
             src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-        <link rel="stylesheet" href="./assets/css/footer.css">
-        <link rel="stylesheet" href="./assets/css/animations.css">
 
     </head>
 
@@ -233,91 +231,93 @@
             <!-- End Anggota -->
 
             <!-- Start Kegiatan -->
-            <section id="kegiatan" class="kegiatan animate fade-up">
-                <h2 class="section-title">Kegiatan Kami</h2>
+    <section id="kegiatan" class="kegiatan" data-aos="fade-up" data-aos-duration="1000">
+  <h2 class="section-title">Kegiatan Kami</h2>
 
-                <div class="cards" id="cards-container">
-                    <!-- Card 1 -->
-                    <div class="card">
-                        <div class="card-img">img</div>
-                        <div class="card-content">
-                            <span class="date">15 Juli 2025</span>
-                            <h3>Goes To School SMA Don Bosco</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit...</p>
-                        </div>
-                    </div>
+  <div class="cards" id="cards-container">
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-img">img</div>
+      <div class="card-content">
+        <span class="date">15 Juli 2025</span>
+        <h3>Goes To School SMA Don Bosco</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit...</p>
+      </div>
+    </div>
 
-                    <!-- Card 2 -->
-                    <div class="card">
-                        <div class="card-img">img</div>
-                        <div class="card-content">
-                            <span class="date">15 Juli 2025</span>
-                            <h3>Goes To School SMA Don Bosco</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit...</p>
-                        </div>
-                    </div>
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-img">img</div>
+      <div class="card-content">
+        <span class="date">15 Juli 2025</span>
+        <h3>Goes To School SMA Don Bosco</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit...</p>
+      </div>
+    </div>
 
-                    <!-- Card 3 -->
-                    <div class="card">
-                        <div class="card-img">img</div>
-                        <div class="card-content">
-                            <span class="date">15 Juli 2025</span>
-                            <h3>Goes To School SMA Don Bosco</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit...</p>
-                        </div>
-                    </div>
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="card-img">img</div>
+      <div class="card-content">
+        <span class="date">15 Juli 2025</span>
+        <h3>Goes To School SMA Don Bosco</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit...</p>
+      </div>
+    </div>
 
-                    <!-- Card 4 -->
-                    <div class="card hidden">
-                        <div class="card-img">img</div>
-                        <div class="card-content">
-                            <span class="date">16 Juli 2025</span>
-                            <h3>Kegiatan Sosial Desa</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit...</p>
-                        </div>
-                    </div>
+    <!-- Card 4 -->
+    <div class="card hidden">
+      <div class="card-img">img</div>
+      <div class="card-content">
+        <span class="date">16 Juli 2025</span>
+        <h3>Kegiatan Sosial Desa</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit...</p>
+      </div>
+    </div>
 
-                    <!-- Card 5 -->
-                    <div class="card hidden">
-                        <div class="card-img">img</div>
-                        <div class="card-content">
-                            <span class="date">17 Juli 2025</span>
-                            <h3>Workshop Digital</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit...</p>
-                        </div>
-                    </div>
+        <!-- Card 4 -->
+    <div class="card hidden">
+      <div class="card-img">img</div>
+      <div class="card-content">
+        <span class="date">16 Juli 2025</span>
+        <h3>Kegiatan Sosial Desa</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit...</p>
+      </div>
+    </div>
 
-                    <!-- Card 6 -->
-                    <div class="card hidden">
-                        <div class="card-img">img</div>
-                        <div class="card-content">
-                            <span class="date">18 Juli 2025</span>
-                            <h3>Festival Sekolah</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit...</p>
-                        </div>
-                    </div>
-                </div>
+        <!-- Card 4 -->
+    <div class="card hidden">
+      <div class="card-img">img</div>
+      <div class="card-content">
+        <span class="date">16 Juli 2025</span>
+        <h3>Kegiatan Sosial Desa</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit...</p>
+      </div>
+    </div>
+    
 
-                <div class="button-wrapper">
-                    <button class="btn-more" id="load-more">See More</button>
-                </div>
-            </section>
-            <!-- End Kegiatan -->
+  
+
+  <div class="button-wrapper">
+    <button class="btn-more" id="load-more">See More</button>
+    <button class="btn-less hidden" id="see-less">See Less</button>
+  </div>
+</section>
 
 <!-- Start FAQ -->
-<section id="faq" class="faq-section animate fade-left">
+<section id="faq" class="faq-section data-aos="fade-up">
   <h2 class="section-title">Pertanyaan Umum</h2>
 
   <div class="faq-item">
     <button class="faq-question">
       Siapa yang bisa bergabung dengan Relawan TIK?
-      <img src="./assets/img/arrowup.svg" class="arrow" alt="arrow" />
+      <img src="./assets/img/Vector.svg" class="arrow" alt="arrow" />
     </button>
     <div class="faq-answer">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
@@ -327,7 +327,7 @@
   <div class="faq-item">
     <button class="faq-question">
       Apakah ada biaya keanggotaan?
-      <img src="./assets/img/arrowup.svg" class="arrow" alt="arrow" />
+      <img src="./assets/img/Vector.svg" class="arrow" alt="arrow" />
     </button>
     <div class="faq-answer">
       <p>Tidak ada biaya keanggotaan untuk bergabung dengan Relawan TIK.</p>
@@ -337,7 +337,7 @@
   <div class="faq-item">
     <button class="faq-question">
       Apa keuntungan bergabung Relawan TIK?
-      <img src="./assets/img/arrowup.svg" class="arrow" alt="arrow" />
+      <img src="./assets/img/Vector.svg" class="arrow" alt="arrow" />
     </button>
     <div class="faq-answer">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
@@ -348,7 +348,7 @@
 
 
             <!-- Start Contact -->
-            <section id="contact" class="contact-section animate fade-right">
+    <section id="contact" class="contact-section" data-aos="fade-right" data-aos-duration="1000">
                 <h2 class="section-title">Hubungi Kami</h2>
                 <div class="contact-container">
 
@@ -410,7 +410,7 @@
 
 
 <!-- Start Footer -->
-<footer class="footer-section animate fade-up">
+<footer class="footer-section">
   <div class="footer-container">
     <div class="footer-left">
       <img src="assets/img/rtik2.png" alt="Logo RTIK" class="footer-logo">
@@ -419,10 +419,10 @@
     <div class="footer-right">
       <h4>Ikuti Kami</h4>
       <div class="footer-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="mailto:rtikkomsatmetamedia@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.instagram.com/rtikkomsat_metamedia"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@relawantikstmikindonesiapa864"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </div>
