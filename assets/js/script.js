@@ -3,6 +3,8 @@ const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-link a");
 const menuToggle = document.getElementById("menu-toggle");
 const mobileMenu = document.querySelector(".nav-mobile-menu");
+const kegiatanCards = document.querySelectorAll("#kegiatan .card");
+const seeMoreBtn = document.getElementById("see-more");
 
 // Navbar
 navLinks.forEach((link) => {
@@ -13,6 +15,7 @@ navLinks.forEach((link) => {
 
     if (mobileMenu.classList.contains("show")) {
       mobileMenu.classList.remove("show");
+      menuToggle.src = "./assets/img/menu.svg";
       setTimeout(() => {
         mobileMenu.style.display = "none";
       }, 300);
@@ -54,10 +57,12 @@ menuToggle.addEventListener("click", (e) => {
     setTimeout(() => {
       mobileMenu.style.display = "none";
     }, 300);
+    menuToggle.src = "./assets/img/menu.svg";
   } else {
     mobileMenu.style.display = "flex";
     void mobileMenu.offsetWidth;
     mobileMenu.classList.add("show");
+    menuToggle.src = "./assets/img/x.svg";
   }
 });
 
@@ -73,23 +78,35 @@ document.addEventListener("click", (e) => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const cards = document.querySelectorAll(".card.hidden");
-  const loadMoreBtn = document.getElementById("load-more");
-  const step = 3; // jumlah yang ditampilkan setiap klik
-  let index = 0;
+// Kegiatan Section
+const initialCardsToShow = 3;
+let cardsVisible = initialCardsToShow;
 
-  loadMoreBtn.addEventListener("click", function () {
-    for (let i = 0; i < step; i++) {
-      if (index < cards.length) {
-        cards[index].classList.remove("hidden");
-        cards[index].classList.add("show");
-        index++;
-      }
-    }
+kegiatanCards.forEach((card, index) => {
+  if (index < cardsVisible) {
+    card.style.display = "block";
+  } else {
+    card.style.display = "none";
+  }
+});
 
-    if (index >= cards.length) {
-      loadMoreBtn.style.display = "none";
+let isSeeMore = true;
+
+seeMoreBtn.addEventListener("click", () => {
+  if (isSeeMore) {
+    cardsVisible = 6;
+    seeMoreBtn.textContent = "See Less";
+  } else {
+    cardsVisible = 3;
+    seeMoreBtn.textContent = "See More";
+  }
+  isSeeMore = !isSeeMore;
+
+  kegiatanCards.forEach((card, index) => {
+    if (index < cardsVisible) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
     }
   });
 });
@@ -109,37 +126,4 @@ document.addEventListener("DOMContentLoaded", function () {
       item.classList.toggle("active");
     });
   });
-
-// === Kegiatan: See More / See Less ===
-const loadMoreBtn = document.getElementById("load-more");
-const seeLessBtn = document.getElementById("see-less");
-
-if (loadMoreBtn && seeLessBtn) {
-  loadMoreBtn.addEventListener("click", () => {
-    const hiddenCards = document.querySelectorAll(".card.hidden"); // ambil ulang
-    hiddenCards.forEach((card, i) => {
-      setTimeout(() => {
-        card.classList.remove("hidden");
-        card.classList.add("show");
-      }, i * 120);
-    });
-    loadMoreBtn.style.display = "none";
-    seeLessBtn.style.display = "inline-block";
-  });
-
-  seeLessBtn.addEventListener("click", () => {
-    const allCards = document.querySelectorAll(".card"); // ambil semua card
-    allCards.forEach((card, index) => {
-      if (index >= 3) { // biar 3 card pertama tetap tampil
-        card.classList.remove("show");
-        card.classList.add("hidden");
-      }
-    });
-    seeLessBtn.style.display = "none";
-    loadMoreBtn.style.display = "inline-block";
-
-    // scroll balik ke atas section
-    document.getElementById("kegiatan").scrollIntoView({ behavior: "smooth" });
-  });
-}
 });

@@ -11,6 +11,8 @@
   overflow: hidden;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  position: relative;
+  padding-bottom: 30px;
 }
 
 .anggota .card:hover {
@@ -50,4 +52,15 @@
 .anggota .card .card-body span {
   font-size: 15px;
   color: var(--primary-color);
+}
+
+.anggota .card button {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 6px 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

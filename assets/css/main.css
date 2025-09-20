@@ -38,7 +38,7 @@ section:not(:first-child) {
   text-align: center;
 }
 
-section:nth-child(even) {
+section:nth-child(odd) {
   background-color: #f9fafb;
 }
 

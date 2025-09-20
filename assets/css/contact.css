@@ -1,22 +1,15 @@
-/* Layout Konten */
 .contact-container {
-  display: flex;
-  flex-wrap: wrap;
   gap: 40px;
-  justify-content: center;
-  align-items: flex-start;
   margin-top: 30px;
 }
 
 /* Card Umum */
 .contact-card {
-  background: #f9fafb; /* beda dari putih polos */
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: #fff;
+  border-radius: 6px;
   padding: 30px 25px;
-  flex: 1 1 360px;
-  max-width: 420px;
-  text-align: left; /* ⬅️ semua isi jadi rata kiri */
+  text-align: left;
+  width: 100%;
 }
 
 /* Judul */
@@ -24,16 +17,15 @@
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #111827;
-  text-align: center; /* ⬅️ judul tetap di tengah */
+  text-align: center;
 }
-
 
 /* Info Kontak */
 .contact-info {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
 }
 
 .contact-info-item {
