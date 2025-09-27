@@ -78,6 +78,22 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// Divisi Section
+document.querySelectorAll(".read-more").forEach((button) => {
+  button.addEventListener("click", function () {
+    const card = this.closest(".card");
+    const shortText = card.querySelector(".short-text");
+    const fullText = card.querySelector(".full-text");
+
+    shortText.classList.toggle("hidden");
+    fullText.classList.toggle("hidden");
+
+    this.textContent = fullText.classList.contains("hidden")
+      ? "Baca selengkapnya..."
+      : "Tutup";
+  });
+});
+
 // Kegiatan Section
 const initialCardsToShow = 3;
 let cardsVisible = initialCardsToShow;
