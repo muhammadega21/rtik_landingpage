@@ -32,12 +32,13 @@
   padding: 0 20px;
   font-size: 14px;
   color: #555;
-  border-top: 1px solid #e5eaf0; /* garis tipis pemisah */
-  transition: max-height 0.4s ease, padding 0.4s ease;
+  border-top: 1px solid #e5eaf0;
+  transition: all 0.4s ease;
 }
 
 .faq-item.active .faq-answer {
   padding: 15px 20px;
+  max-height: max-content;
 }
 
 /* Icon Panah */
