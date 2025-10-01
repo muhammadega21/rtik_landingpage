@@ -48,7 +48,7 @@ header {
 
 .hero-bg {
   background-image: var(--linear-color);
-  opacity: 80%;
+  opacity: 70%;
 }
 
 @media (max-width: 768px) {
