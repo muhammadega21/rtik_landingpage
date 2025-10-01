@@ -143,3 +143,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Message
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+    let name = document.getElementById("name").value;
+    let message = document.getElementById("message").value;
+    let whatsappNumber = "6282285022787";
+
+    let text = `*Nama:* ${name}%0A` + `*Pesan:* ${message}`;
+
+    let url = `https://wa.me/${whatsappNumber}?text=${text}`;
+    window.open(url, "_blank");
+    document.getElementById("contact-form").reset();
+  });
