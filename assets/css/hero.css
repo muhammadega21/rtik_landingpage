@@ -26,6 +26,7 @@ header {
   opacity: 0;
   z-index: 98;
   transition: all 0.3s ease-out;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-mobile-menu.show {

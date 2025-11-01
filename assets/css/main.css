@@ -6,6 +6,7 @@
 @import "kegiatan.css";
 @import "faq.css";
 @import "contact.css";
+@import "daftar.css";
 @import "footer.css";
 
 :root {
@@ -21,7 +22,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {

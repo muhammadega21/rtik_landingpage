@@ -12,7 +12,8 @@
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   position: relative;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: inset 4px var(--primary-color);
 }
 
 .anggota .card:hover {

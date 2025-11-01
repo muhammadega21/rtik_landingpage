@@ -1,191 +1,188 @@
 <!DOCTYPE html>
 <html lang="id">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pendaftaran - Relawan TIK Komisariat Universitas Metamedia</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="./assets/css/daftar.css">
-    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pendaftaran - Relawan TIK Komisariat Universitas Metamedia
+        </title>
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <!-- <link rel="stylesheet" href="./assets/css/daftar.css"> -->
+        <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
+        <script
+            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
 
-<body>
-    <!-- Header -->
-    <header data-aos="fade-down" data-aos-duration="1000">
-        <nav class="h-full flex justify-between items-center px-10 md:px-[100px]">
-            <div class="logo-branding">
-                <a href="./index.html">
-                    <img src="./assets/img/rtik2.png" alt="logo rtik" width="45">
+    <body>
+        <!-- Header -->
+        <header data-aos="fade-down" data-aos-duration="1000">
+            <nav
+                class="h-full flex justify-between items-center px-10 md:px-[100px] ">
+                <a href="#">
+                    <img src="./assets/img/rtik2.png" alt="logo rtik"
+                        width="45">
                 </a>
-                <div class="branding-text">
-                    <p class="text-xs md:text-xs font-semibold">Relawan TIK</p>
-                    <p class="text-xs md:text-xs">Komsat Universitas Metamedia</p>
+
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Registration Section -->
+            <section class="reg-section">
+                <div class="reg-form-container" data-aos="fade-up">
+                    <h2>Bergabunglah dengan Kami</h2>
+                    <p>Isi form di bawah untuk mendaftar menjadi anggota Relawan
+                        TIK</p>
+
+                    <div class="success-message" id="successMsg">
+                        <i class="fas fa-check-circle"></i> Pendaftaran
+                        berhasil! Terima kasih telah bergabung dengan kami.
+                    </div>
+
+                    <div class="error-message" id="errorMsg">
+                        <i class="fas fa-exclamation-circle"></i> <span
+                            id="errorText"></span>
+                    </div>
+
+                    <form id="daftarForm">
+                        <div class="form-group">
+                            <label for="nim">NIM <span
+                                    style="color: #ef4444;">*</span></label>
+                            <div class="form-description">Nomor Identitas
+                                Mahasiswa Anda</div>
+                            <input type="text" id="nim" name="nim" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap <span
+                                    style="color: #ef4444;">*</span></label>
+                            <div class="form-description">Sesuai dengan
+                                identitas resmi</div>
+                            <input type="text" id="nama" name="nama" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email <span
+                                    style="color: #ef4444;">*</span></label>
+                            <div class="form-description">Email aktif Anda untuk
+                                komunikasi</div>
+                            <input type="email" id="email" name="email"
+                                required>
+                            <div class="email-feedback"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="wa">WhatsApp <span
+                                    style="color: #ef4444;">*</span></label>
+                            <div class="form-description">Nomor WA aktif
+                                (dimulai dengan 62)</div>
+                            <input type="text" id="wa" name="wa"
+                                placeholder="Contoh: 6281234567890" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prodi">Program Studi <span
+                                    style="color: #ef4444;">*</span></label>
+                            <div class="form-description">Jurusan/Program Studi
+                                Anda</div>
+                            <input type="text" id="prodi" name="prodi" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ttl">Tempat, Tanggal Lahir</label>
+                            <div class="form-description">Contoh: Jakarta, 15
+                                Januari 2005</div>
+                            <input type="text" id="ttl" name="ttl">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asal">Asal (Kota/Kabupaten)</label>
+                            <div class="form-description">Kota atau Kabupaten
+                                asal Anda</div>
+                            <input type="text" id="asal" name="asal">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hobi">Hobi</label>
+                            <div class="form-description">Hobi atau minat Anda
+                                (pisahkan dengan koma)</div>
+                            <input type="text" id="hobi" name="hobi">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="media">Media Sosial
+                                (Instagram/Linkedin)</label>
+                            <div class="form-description">Akun media sosial
+                                untuk follow-up</div>
+                            <input type="text" id="media" name="media"
+                                placeholder="Contoh: @rifaldo.dev atau instagram.com/rifaldo.dev">
+                        </div>
+
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i> Kirim Pendaftaran
+                        </button>
+                        <a href="./index.html"
+                            class="bg-white border border-[var(--primary-color)] text-[var(--primary-color)]  py-3 px-4 rounded-lg text-center">Kembali
+                            ke Beranda</a>
+                    </form>
                 </div>
-            </div>
-            <div class="nav-link nav-desktop hidden md:flex gap-4">
-                <a href="./index.html#about">Tentang Kami</a>
-                <a href="./index.html#divisi">Divisi</a>
-                <a href="./index.html#kegiatan">Kegiatan</a>
-                <a href="./index.html#faq">FAQ</a>
-                <a href="./index.html#contact">Kontak</a>
-                <a href="./daftar.html" style="color: #2563eb; font-weight: 600;">Daftar</a>
-            </div>
-            <div class="nav-mobile flex justify-end md:hidden">
-                <img src="./assets/img/menu.svg" alt="menu" class="w-8 h-8" id="menu-toggle">
-                <div class="nav-link nav-mobile-menu">
-                    <a href="./index.html#about">Tentang Kami</a>
-                    <a href="./index.html#kegiatan">Kegiatan</a>
-                    <a href="./index.html#faq">FAQ</a>
-                    <a href="./index.html#contact">Kontak</a>
-                    <a href="./daftar.html">Daftar</a>
+            </section>
+            <footer class="footer-section">
+                <div class="footer-container">
+
+                    <!-- Kiri -->
+                    <div class="footer-left">
+                        <img src="./assets/img/rtik2.png" alt="Logo RTIK"
+                            class="footer-logo">
+                    </div>
+
+                    <!-- Tengah -->
+                    <div class="footer-center">
+                        <h4>Navigasi</h4>
+                        <ul class="footer-links">
+                            <li><a href="#hero">Beranda</a></li>
+                            <li><a href="#about">Tentang</a></li>
+                            <li><a href="#divisi">Divisi</a></li>
+                            <li><a href="#contact">Kontak</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Kanan -->
+                    <div class="footer-right">
+                        <h4>Ikuti Kami</h4>
+                        <div class="footer-socials">
+                            <a href="#"><i class="fab fa-tiktok"></i></a>
+                            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="https://www.instagram.com/rtikkomsat_metamedia"
+                                target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com/@relawantikstmikindonesiapa864"
+                                target="_blank"><i
+                                    class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Registration Section -->
-        <section class="reg-section" data-aos="fade-up">
-            <div class="reg-form-container" data-aos="zoom-in">
-                <h2>Bergabunglah dengan Kami</h2>
-                <p>Isi form di bawah untuk mendaftar menjadi anggota Relawan TIK</p>
-
-                <div class="success-message" id="successMsg">
-                    <i class="fas fa-check-circle"></i> Pendaftaran berhasil! Terima kasih telah bergabung dengan kami.
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Relawan TIK Komisariat Universitas Metamedia.
+                    </p>
                 </div>
+            </footer>
+        </main>
 
-                <div class="error-message" id="errorMsg">
-                    <i class="fas fa-exclamation-circle"></i> <span id="errorText"></span>
-                </div>
-
-                <form id="daftarForm">
-                    <div class="form-group">
-                        <label for="nim">NIM <span style="color: #ef4444;">*</span></label>
-                        <div class="form-description">Nomor Identitas Mahasiswa Anda</div>
-                        <input type="text" id="nim" name="nim" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nama">Nama Lengkap <span style="color: #ef4444;">*</span></label>
-                        <div class="form-description">Sesuai dengan identitas resmi</div>
-                        <input type="text" id="nama" name="nama" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email <span style="color: #ef4444;">*</span></label>
-                        <div class="form-description">Email aktif Anda untuk komunikasi</div>
-                        <input type="email" id="email" name="email" required>
-                        <div class="email-feedback"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="wa">WhatsApp <span style="color: #ef4444;">*</span></label>
-                        <div class="form-description">Nomor WA aktif (dimulai dengan 62)</div>
-                        <input type="text" id="wa" name="wa" placeholder="Contoh: 6281234567890" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="prodi">Program Studi <span style="color: #ef4444;">*</span></label>
-                        <div class="form-description">Jurusan/Program Studi Anda</div>
-                        <input type="text" id="prodi" name="prodi" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="ttl">Tempat, Tanggal Lahir</label>
-                        <div class="form-description">Contoh: Jakarta, 15 Januari 2005</div>
-                        <input type="text" id="ttl" name="ttl">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="asal">Asal (Kota/Kabupaten)</label>
-                        <div class="form-description">Kota atau Kabupaten asal Anda</div>
-                        <input type="text" id="asal" name="asal">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="hobi">Hobi</label>
-                        <div class="form-description">Hobi atau minat Anda (pisahkan dengan koma)</div>
-                        <input type="text" id="hobi" name="hobi">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="media">Media Sosial (Instagram/Linkedin)</label>
-                        <div class="form-description">Akun media sosial untuk follow-up</div>
-                        <input type="text" id="media" name="media" placeholder="Contoh: @rifaldo.dev atau instagram.com/rifaldo.dev">
-                    </div>
-
-                    <button type="submit">
-                        <i class="fas fa-paper-plane"></i> Kirim Pendaftaran
-                    </button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer-section">
-        <div class="footer-container">
-
-            <!-- Kiri -->
-            <div class="footer-left">
-                <img src="./assets/img/rtik2.png" alt="Logo RTIK"
-                    class="footer-logo">
-            </div>
-
-            <!-- Tengah -->
-            <div class="footer-center">
-                <h4>Navigasi</h4>
-                <ul class="footer-links">
-                    <li><a href="./index.html#hero">Beranda</a></li>
-                    <li><a href="./index.html#about">Tentang</a></li>
-                    <li><a href="./index.html#divisi">Divisi</a></li>
-                    <li><a href="./index.html#contact">Kontak</a></li>
-                </ul>
-            </div>
-
-            <!-- Kanan -->
-            <div class="footer-right">
-                <h4>Ikuti Kami</h4>
-                <div class="footer-socials">
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                    <a href="mailto:rtikkomsatmetamedia@gmail.com"
-                        target="_blank"><i
-                            class="fa-solid fa-envelope"></i></a>
-                    <a href="https://www.instagram.com/rtikkomsat_metamedia"
-                        target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="https://youtube.com/@relawantikstmikindonesiapa864"
-                        target="_blank"><i
-                            class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 Relawan TIK Komisariat Universitas Metamedia.
-                All rights reserved.
-            </p>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button id="backToTopBtn" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="./assets/js/daftar.js"></script>
-
-</body>
+        <!-- Scripts -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script src="./assets/js/daftar.js"></script>
+        <script>
+            AOS.init();
+        </script>
+    </body>
 
 </html>
