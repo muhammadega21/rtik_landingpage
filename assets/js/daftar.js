@@ -22,18 +22,14 @@ emailInput.addEventListener("input", function () {
   }
 });
 
-// WhatsApp Input Format (Prefix 62)
 const waInput = document.getElementById("wa");
 waInput.addEventListener("input", function () {
-  // Hapus karakter non-digit
   let value = this.value.replace(/\D/g, "");
 
-  // Jika diawali 0, ganti dengan 62
   if (value.startsWith("0")) {
     value = "62" + value.substring(1);
   }
 
-  // Jika belum dimulai dengan 62, tambahkan
   if (value && !value.startsWith("62")) {
     value = "62" + value;
   }
@@ -41,14 +37,12 @@ waInput.addEventListener("input", function () {
   this.value = value;
 });
 
-// Form Handler
 const scriptURL =
   "https://script.google.com/macros/s/AKfycbz011yVO2MS8cUxgURoqq7-84ZDpcpSMRefRTE2rXSl0lmEiRltQBNoyxbox1Ww_RtD2g/exec";
 const form = document.getElementById("daftarForm");
 const submitBtn = form.querySelector('button[type="submit"]');
 const originalBtnText = submitBtn.innerHTML;
 
-// Function untuk cegah penutupan browser
 const preventCloseHandler = (e) => {
   e.preventDefault();
   e.returnValue = "";
@@ -58,10 +52,8 @@ const preventCloseHandler = (e) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  // Tambahkan event listener untuk cegah browser ditutup
   window.addEventListener("beforeunload", preventCloseHandler);
 
-  // Tampilkan SweetAlert loading
   Swal.fire({
     title: "Mengirim Data Pendaftaran",
     html: '<div style="font-size: 16px; margin: 20px 0;"><p>Sedang mengirim data pendaftaran Anda...</p><p style="color: #ef4444; font-weight: bold; margin-top: 15px;">⚠️ Jangan tutup browser!</p></div>',
@@ -79,7 +71,6 @@ form.addEventListener("submit", (e) => {
     .then((data) => {
       console.log(data);
 
-      // Hapus event listener pencegahan
       window.removeEventListener("beforeunload", preventCloseHandler);
 
       if (data.status === "success") {
@@ -107,7 +98,6 @@ form.addEventListener("submit", (e) => {
     .catch((err) => {
       console.error("Gagal:", err);
 
-      // Hapus event listener pencegahan
       window.removeEventListener("beforeunload", preventCloseHandler);
 
       Swal.fire({
