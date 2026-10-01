@@ -122,7 +122,7 @@ let isSeeMore = true;
 
 seeMoreBtn.addEventListener("click", () => {
   if (isSeeMore) {
-    cardsVisible = 6;
+    cardsVisible = 9;
     seeMoreBtn.textContent = "Show Less";
   } else {
     cardsVisible = 3;
