@@ -9,13 +9,25 @@ const seeMoreBtn = document.getElementById("see-more");
 // Navbar
 navLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
-    e.preventDefault();
     const targetId = link.getAttribute("href");
+
+    // Hanya proses link anchor dalam halaman yang sama
+    if (!targetId.startsWith("#")) {
+      return;
+    }
+
+    e.preventDefault();
+
     const targetElement = document.querySelector(targetId);
+
+    if (!targetElement) {
+      return;
+    }
 
     if (mobileMenu.classList.contains("show")) {
       mobileMenu.classList.remove("show");
       menuToggle.src = "./assets/img/menu.svg";
+
       setTimeout(() => {
         mobileMenu.style.display = "none";
       }, 300);
@@ -111,10 +123,10 @@ let isSeeMore = true;
 seeMoreBtn.addEventListener("click", () => {
   if (isSeeMore) {
     cardsVisible = 6;
-    seeMoreBtn.textContent = "See Less";
+    seeMoreBtn.textContent = "Show Less";
   } else {
     cardsVisible = 3;
-    seeMoreBtn.textContent = "See More";
+    seeMoreBtn.textContent = "Show More";
   }
   isSeeMore = !isSeeMore;
 
