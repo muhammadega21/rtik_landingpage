@@ -5,8 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Relawan TIK Komisariat Universitas Metamedia</title>
-        <link rel="stylesheet" href="./assets/css/main.css">
-        <link rel="stylesheet" href="./assets/css/interactions.css">
+        <link rel="stylesheet" href="./assets/css/main.min.css">
         <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
         <script
             src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -30,7 +29,6 @@
                     <a href="#about">Tentang Kami</a>
                     <a href="#divisi">Divisi</a>
                     <a href="#anggota">Anggota</a>
-                    <a href="#dkr">DKR</a>
                     <a href="#kegiatan">Kegiatan</a>
                     <a href="./gallery.html">Gallery</a>
                     <a href="#faq">FAQ</a>
@@ -42,7 +40,6 @@
                     <div class="nav-link nav-mobile-menu">
                         <a href="#about">Tentang Kami</a>
                         <a href="#anggota">Anggota</a>
-                        <a href="#dkr">DKR</a>
                         <a href="#kegiatan">Kegiatan</a>
                         <a href="./gallery.html">Gallery</a>
                         <a href="#faq">FAQ</a>
@@ -50,16 +47,12 @@
                     </div>
                 </div>
             </nav>
-            <div class="scroll-progress" aria-hidden="true">
-                <span id="scroll-progress-bar"></span>
-            </div>
         </header>
         <main><!-- Start Hero -->
             <section id="hero" class="relative h-[100dvh] overflow-hidden">
-                <div class="hero-bg absolute inset-0"></div>
-                <img loading="eager" src="./assets/img/hero-bg.webp"
-                    alt="hero-bg" class="hero-image h-full w-full object-cover">
-                <div class="hero-particles" aria-hidden="true"></div>
+                <div class="hero-bg absolute inset-0"></div><img loading="lazy"
+                    src="./assets/img/hero-bg.webp" alt="hero-bg"
+                    class="h-full w-full object-cover">
                 <div class="absolute top-1/2 transform -translate-y-1/2 px-10 left-0 md:left-[100px] md:-translate-x-0 z-10 text-white"
                     data-aos="fade-up" data-aos-duration="1000">
                     <div>
@@ -344,7 +337,7 @@
                         </div>
                         <div class="card-body">
                             <div class="card-title">
-                                <h3>Azahra Rinaldi</h3><span>Sekretaris</span>
+                                <h3>Azzahra Dinardi</h3><span>Sekretaris</span>
                             </div>
                             <p>Sekretaris Relawan TIK Universitas Metamedia
                                 periode 2025/2026</p>
@@ -497,75 +490,7 @@
                         </div>
                     </div>
                 </div>
-            </section><!-- End Anggota --><!-- Start DKR -->
-            <section id="dkr" class="dkr">
-                <div data-aos="fade-up">
-                    <h2 class="section-title">Dewan Kehormatan
-                        (DKR)
-                    </h2>
-
-                    <p class="dkr-description">
-                        Dewan Kehormatan merupakan bagian dari Relawan TIK
-                        Komisariat
-                        Universitas Metamedia yang terdiri atas anggota senior
-                        dan/atau
-                        pengurus sebelumnya. Dewan Kehormatan berwenang
-                        menyelesaikan
-                        persoalan disiplin yang tidak lagi dapat diselesaikan
-                        oleh
-                        Divisi
-                        Internal, serta memberikan bimbingan dan membantu
-                        meningkatkan
-                        keterampilan anggota sesuai kebutuhan dan kapasitasnya.
-                    </p>
-                    <p class="dkr-description">
-                        Dewan Kehormatan Relawan TIK Komisariat Universitas
-                        Metamedia
-                        dipilih melalui Musyawarah Besar.
-                    </p>
-                </div>
-                <div class="card-list">
-                    <div class="card" data-aos="fade-up" data-year="2026">
-                        <div class="card-head"><img loading="lazy"
-                                src="./assets/img/dkr/ryankurniawan.webp"
-                                alt="anggota">
-                        </div>
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h3>Ryan Kurniawan</h3><span>DKR</span>
-                            </div>
-                            <p>Ketua Relawan TIK Universitas Metamedia Periode
-                                2025 - 2026</p>
-                        </div>
-                    </div>
-                    <div class="card" data-aos="fade-up" data-year="2024">
-                        <div class="card-head"><img loading="lazy"
-                                src="./assets/img/dkr/hamdiputra.webp"
-                                alt="anggota">
-                        </div>
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h3>Hamdi Putra</h3><span>DKR</span>
-                            </div>
-                            <p>Ketua Relawan TIK Universitas Metamedia Periode
-                                2023 - 2024</p>
-                        </div>
-                    </div>
-                    <div class="card" data-aos="fade-up" data-year="2022">
-                        <div class="card-head"><img loading="lazy"
-                                src="./assets/img/dkr/rianfirmansyah.webp"
-                                alt="anggota">
-                        </div>
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h3>Rian Firmansyah</h3><span>DKR</span>
-                            </div>
-                            <p>Wakil Ketua Relawan TIK Universitas Metamedia
-                                Periode 2021 - 2022</p>
-                        </div>
-                    </div>
-                </div>
-            </section><!-- End DKR --><!-- Start Kegiatan -->
+            </section><!-- End Anggota --><!-- Start Kegiatan -->
             <section id="kegiatan" class="kegiatan">
                 <h2 class="section-title" data-aos="fade-up">Kegiatan Kami</h2>
                 <div class="cards w-full" id="cards-container">
@@ -880,12 +805,8 @@
                 </div>
             </footer><!-- End Footer -->
         </main>
-        <button type="button" id="scroll-to-top" class="scroll-to-top"
-            aria-label="Kembali ke atas" aria-hidden="true">
-            <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-        </button>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>AOS.init({ once: true, duration: 800, easing: "ease-out-cubic" })</script>
+        <script>AOS.init()</script>
         <script src="./assets/js/script.js"></script>
     </body>
 

@@ -1,22 +1,49 @@
 const navbar = document.querySelector("nav");
+const header = document.querySelector("header");
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-link a");
 const menuToggle = document.getElementById("menu-toggle");
 const mobileMenu = document.querySelector(".nav-mobile-menu");
 const kegiatanCards = document.querySelectorAll("#kegiatan .card");
 const seeMoreBtn = document.getElementById("see-more");
+const progressBar = document.getElementById("scroll-progress-bar");
+const scrollToTopButton = document.getElementById("scroll-to-top");
+const hero = document.getElementById("hero");
 
-// Navbar
+// Hero particles: dibuat lewat JS agar tidak perlu library tambahan.
+function createHeroParticles() {
+  if (!hero) return;
+
+  const container = hero.querySelector(".hero-particles");
+  if (!container || container.children.length) return;
+
+  const particleCount = window.innerWidth < 768 ? 18 : 30;
+
+  for (let i = 0; i < particleCount; i += 1) {
+    const particle = document.createElement("span");
+    particle.className = "hero-particle";
+    particle.style.setProperty("--x", `${Math.random() * 100}%`);
+    particle.style.setProperty("--y", `${Math.random() * 100}%`);
+    particle.style.setProperty("--size", `${Math.random() * 2.8 + 1}px`);
+    particle.style.setProperty("--duration", `${Math.random() * 10 + 12}s`);
+    particle.style.setProperty("--delay", `${Math.random() * -12}s`);
+    particle.style.setProperty("--drift-x", `${(Math.random() - 0.5) * 80}px`);
+    particle.style.setProperty("--drift-y", `${(Math.random() - 0.5) * 70}px`);
+    container.appendChild(particle);
+  }
+}
+
+createHeroParticles();
+
+// Navbar / smooth scroll
 navLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     const targetId = link.getAttribute("href");
 
     // Hanya proses link anchor dalam halaman yang sama
-    if (!targetId.startsWith("#")) {
+    if (!targetId || !targetId.startsWith("#")) {
       return;
     }
-
-    e.preventDefault();
 
     const targetElement = document.querySelector(targetId);
 
@@ -24,45 +51,95 @@ navLinks.forEach((link) => {
       return;
     }
 
-    if (mobileMenu.classList.contains("show")) {
+    e.preventDefault();
+
+    if (mobileMenu?.classList.contains("show")) {
       mobileMenu.classList.remove("show");
-      menuToggle.src = "./assets/img/menu.svg";
+      if (menuToggle) {
+        menuToggle.src = "./assets/img/menu.svg";
+      }
 
       setTimeout(() => {
-        mobileMenu.style.display = "none";
+        if (mobileMenu) mobileMenu.style.display = "none";
       }, 300);
     }
 
+    const headerOffset = header?.offsetHeight || 70;
+
     window.scrollTo({
-      top: targetElement.offsetTop - 70,
+      top: targetElement.offsetTop - headerOffset,
       behavior: "smooth",
     });
   });
 });
 
-window.addEventListener("scroll", () => {
-  let scrollTop = window.scrollY || document.documentElement.scrollTop;
+// Scroll UI: progress bar, active navigation, navbar shadow, scroll-to-top.
+let ticking = false;
+
+function updateScrollUI() {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const viewportHeight = window.innerHeight;
+  const documentHeight = document.documentElement.scrollHeight;
+  const maxScroll = Math.max(documentHeight - viewportHeight, 1);
+  const progress = Math.min(Math.max(scrollTop / maxScroll, 0), 1) * 100;
+
+  if (progressBar) {
+    progressBar.style.width = `${progress}%`;
+  }
+
+  if (scrollToTopButton) {
+    const shouldShow = scrollTop > 420;
+    scrollToTopButton.classList.toggle("show", shouldShow);
+    scrollToTopButton.setAttribute("aria-hidden", String(!shouldShow));
+  }
+
+  if (header) {
+    header.classList.toggle("is-scrolled", scrollTop > 16);
+  }
 
   sections.forEach((section) => {
-    let sectionTop = section.offsetTop - 150;
-    let sectionHeight = section.offsetHeight;
+    const sectionTop = section.offsetTop - 150;
+    const sectionHeight = section.offsetHeight;
 
     if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
-      let id = section.getAttribute("id");
+      const id = section.getAttribute("id");
 
       navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${id}`) {
-          link.classList.add("active");
-        }
+        link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
       });
     }
+  });
+
+  ticking = false;
+}
+
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateScrollUI);
+      ticking = true;
+    }
+  },
+  { passive: true },
+);
+
+window.addEventListener("load", updateScrollUI);
+window.addEventListener("resize", updateScrollUI);
+
+// Scroll to top
+scrollToTopButton?.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
   });
 });
 
 // Mobile menu
-menuToggle.addEventListener("click", (e) => {
+menuToggle?.addEventListener("click", (e) => {
   e.stopPropagation();
+
+  if (!mobileMenu) return;
 
   if (mobileMenu.classList.contains("show")) {
     mobileMenu.classList.remove("show");
@@ -80,6 +157,7 @@ menuToggle.addEventListener("click", (e) => {
 
 document.addEventListener("click", (e) => {
   if (
+    mobileMenu &&
     !e.target.closest(".nav-mobile") &&
     mobileMenu.classList.contains("show")
   ) {
@@ -87,6 +165,7 @@ document.addEventListener("click", (e) => {
     setTimeout(() => {
       mobileMenu.style.display = "none";
     }, 300);
+    if (menuToggle) menuToggle.src = "./assets/img/menu.svg";
   }
 });
 
@@ -94,8 +173,11 @@ document.addEventListener("click", (e) => {
 document.querySelectorAll(".read-more").forEach((button) => {
   button.addEventListener("click", function () {
     const card = this.closest(".card");
+    if (!card) return;
+
     const shortText = card.querySelector(".short-text");
     const fullText = card.querySelector(".full-text");
+    if (!shortText || !fullText) return;
 
     shortText.classList.toggle("hidden");
     fullText.classList.toggle("hidden");
@@ -111,16 +193,12 @@ const initialCardsToShow = 3;
 let cardsVisible = initialCardsToShow;
 
 kegiatanCards.forEach((card, index) => {
-  if (index < cardsVisible) {
-    card.style.display = "block";
-  } else {
-    card.style.display = "none";
-  }
+  card.style.display = index < cardsVisible ? "block" : "none";
 });
 
 let isSeeMore = true;
 
-seeMoreBtn.addEventListener("click", () => {
+seeMoreBtn?.addEventListener("click", () => {
   if (isSeeMore) {
     cardsVisible = 9;
     seeMoreBtn.textContent = "Show Less";
@@ -131,43 +209,41 @@ seeMoreBtn.addEventListener("click", () => {
   isSeeMore = !isSeeMore;
 
   kegiatanCards.forEach((card, index) => {
-    if (index < cardsVisible) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
+    card.style.display = index < cardsVisible ? "block" : "none";
   });
 });
 
-// bagian faq
+// FAQ
 document.addEventListener("DOMContentLoaded", function () {
-  // === FAQ ===
   const faqItems = document.querySelectorAll(".faq-item");
+
   faqItems.forEach((item) => {
     const question = item.querySelector(".faq-question");
+    if (!question) return;
+
     question.addEventListener("click", () => {
-      // Tutup semua sebelum buka yang diklik
       faqItems.forEach((i) => {
         if (i !== item) i.classList.remove("active");
       });
-      // Toggle item aktif
+
       item.classList.toggle("active");
     });
   });
 });
 
-// Message
-document
-  .getElementById("contact-form")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
-    let name = document.getElementById("name").value;
-    let message = document.getElementById("message").value;
-    let whatsappNumber = "6282285022787";
+// Contact form -> WhatsApp
+const contactForm = document.getElementById("contact-form");
 
-    let text = `*Nama:* ${name}%0A` + `*Pesan:* ${message}`;
+contactForm?.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    let url = `https://wa.me/${whatsappNumber}?text=${text}`;
-    window.open(url, "_blank");
-    document.getElementById("contact-form").reset();
-  });
+  const name = document.getElementById("name")?.value || "";
+  const message = document.getElementById("message")?.value || "";
+  const whatsappNumber = "6282285022787";
+
+  const text = `*Nama:* ${name}%0A` + `*Pesan:* ${message}`;
+  const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+
+  window.open(url, "_blank");
+  contactForm.reset();
+});

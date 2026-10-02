@@ -1,0 +1,277 @@
+/* =========================================
+   Interactive / Motion Enhancements
+   ========================================= */
+
+:root {
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Smooth scroll is handled natively by the page's links and JS. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- Navbar ---------- */
+header {
+  transition:
+    box-shadow 0.35s ease,
+    background-color 0.35s ease,
+    transform 0.35s var(--motion-ease);
+}
+
+header.is-scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Progress bar sits directly at the bottom edge of the navbar. */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  overflow: hidden;
+  background: rgba(37, 99, 235, 0.08);
+  pointer-events: none;
+}
+
+#scroll-progress-bar {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(90deg, #60a5fa 0%, #2563eb 55%, #1d4ed8 100%);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.35);
+  transition: width 0.08s linear;
+}
+
+/* ---------- Hero ---------- */
+#hero {
+  isolation: isolate;
+  background: #0f172a;
+}
+
+#hero .hero-image {
+  position: absolute;
+  inset: -2%;
+  width: 104%;
+  height: 104%;
+  max-width: none;
+  z-index: 0;
+  object-fit: cover;
+  transform: scale(1.01);
+  transform-origin: center center;
+  animation: heroSlowZoom 22s var(--motion-ease) infinite alternate;
+  will-change: transform;
+  filter: saturate(1.04) contrast(1.02);
+}
+
+#hero .hero-bg {
+  z-index: 1;
+  opacity: 0.76;
+  background:
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(96, 165, 250, 0.24),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 78% 72%,
+      rgba(30, 64, 175, 0.22),
+      transparent 30%
+    ),
+    var(--linear-color);
+  background-size:
+    120% 120%,
+    130% 130%,
+    100% 100%;
+  animation: heroGradientDrift 18s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.03) 0%,
+    rgba(15, 23, 42, 0.05) 45%,
+    rgba(15, 23, 42, 0.24) 100%
+  );
+}
+
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-particle {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: rgba(219, 234, 254, 0.42);
+  opacity: 0.28;
+  box-shadow: 0 0 10px rgba(147, 197, 253, 0.18);
+  animation: particleFloat var(--duration) ease-in-out var(--delay) infinite
+    alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes heroSlowZoom {
+  0% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1.075);
+  }
+}
+
+@keyframes heroGradientDrift {
+  0% {
+    background-position:
+      0% 0%,
+      100% 100%,
+      0% 50%;
+  }
+  100% {
+    background-position:
+      15% 10%,
+      85% 90%,
+      100% 50%;
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.9);
+    opacity: 0.14;
+  }
+  50% {
+    opacity: 0.32;
+  }
+  100% {
+    transform: translate3d(var(--drift-x), var(--drift-y), 0) scale(1.12);
+    opacity: 0.08;
+  }
+}
+
+/* Make hero content sit above the visual layers. */
+#hero > div:not(.hero-bg):not(.hero-particles) {
+  z-index: 10;
+}
+
+/* ---------- Scroll to top ---------- */
+.scroll-to-top {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 120;
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(37, 99, 235, 0.88);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(0.84);
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s var(--motion-ease),
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-to-top:hover {
+  background: #1d4ed8;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 14px 32px rgba(37, 99, 235, 0.28);
+}
+
+.scroll-to-top:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.scroll-to-top i {
+  font-size: 16px;
+}
+
+/* ---------- Subtle card motion ---------- */
+.anggota .card,
+#divisi .card,
+.kegiatan .card,
+.contact-card,
+.faq-item {
+  transition:
+    transform 0.35s var(--motion-ease),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.anggota .card:hover,
+#divisi .card:hover,
+.kegiatan .card:hover {
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.12);
+}
+
+/* ---------- Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero .hero-image {
+    width: 108%;
+    height: 108%;
+    inset: -4%;
+  }
+
+  .scroll-to-top {
+    right: 18px;
+    bottom: 18px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .scroll-progress {
+    height: 2px;
+  }
+}
