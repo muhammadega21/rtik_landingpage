@@ -43,6 +43,32 @@ const form = document.getElementById("daftarForm");
 const submitBtn = form.querySelector('button[type="submit"]');
 const originalBtnText = submitBtn.innerHTML;
 
+// Dropdown Program Studi & Input Mahasiswa Luar Kampus
+const prodiSelect = document.getElementById("prodiSelect");
+const prodiLainnyaContainer = document.getElementById("prodiLainnyaContainer");
+const prodiLainnya = document.getElementById("prodiLainnya");
+
+if (prodiSelect) {
+  prodiSelect.addEventListener("change", function () {
+    if (this.value === "Lainnya") {
+      prodiLainnyaContainer.style.display = "block";
+      prodiLainnya.required = true;
+      prodiLainnya.focus();
+    } else {
+      prodiLainnyaContainer.style.display = "none";
+      prodiLainnya.required = false;
+      prodiLainnya.value = "";
+    }
+  });
+}
+
+form.addEventListener("reset", () => {
+  if (prodiLainnyaContainer) {
+    prodiLainnyaContainer.style.display = "none";
+    prodiLainnya.required = false;
+  }
+});
+
 const preventCloseHandler = (e) => {
   e.preventDefault();
   e.returnValue = "";
@@ -66,6 +92,10 @@ form.addEventListener("submit", (e) => {
   });
 
   const formData = new FormData(form);
+  if (prodiSelect && prodiSelect.value === "Lainnya") {
+    const customProdi = prodiLainnya ? prodiLainnya.value.trim() : "";
+    formData.set("prodi", customProdi || "Mahasiswa Luar Kampus");
+  }
   fetch(scriptURL, { method: "POST", body: formData })
     .then((res) => res.json())
     .then((data) => {
