@@ -71,6 +71,22 @@
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
+.dob-group {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .dob-group {
+    gap: 6px;
+  }
+  .dob-group select {
+    padding: 12px 6px;
+    font-size: 13px;
+  }
+}
+
 #daftarForm button {
   width: 100%;
   background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);

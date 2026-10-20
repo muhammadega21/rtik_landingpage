@@ -67,7 +67,71 @@ form.addEventListener("reset", () => {
     prodiLainnyaContainer.style.display = "none";
     prodiLainnya.required = false;
   }
+  if (typeof updateDays === "function") {
+    setTimeout(updateDays, 0);
+  }
 });
+
+// Dropdown Date of Birth (Tanggal, Bulan, Tahun)
+const dobTgl = document.getElementById("dob_tgl");
+const dobBln = document.getElementById("dob_bln");
+const dobThn = document.getElementById("dob_thn");
+
+const namaBulan = [
+  "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+  "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+];
+
+function updateDays() {
+  if (!dobTgl) return;
+  const currentVal = parseInt(dobTgl.value, 10);
+  const monthName = dobBln?.value || "";
+  const year = parseInt(dobThn?.value, 10) || 2000;
+
+  let maxDays = 31;
+  if (monthName) {
+    const monthIndex = namaBulan.indexOf(monthName);
+    if (monthIndex === 1) {
+      const isLeap = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+      maxDays = isLeap ? 29 : 28;
+    } else if ([3, 5, 8, 10].includes(monthIndex)) {
+      maxDays = 30;
+    }
+  }
+
+  dobTgl.innerHTML = '<option value="" disabled selected>Tanggal</option>';
+  for (let d = 1; d <= maxDays; d++) {
+    const opt = document.createElement("option");
+    opt.value = d;
+    opt.textContent = d;
+    if (d === currentVal && currentVal <= maxDays) {
+      opt.selected = true;
+    }
+    dobTgl.appendChild(opt);
+  }
+}
+
+if (dobTgl && dobBln && dobThn) {
+  namaBulan.forEach((bulan) => {
+    const opt = document.createElement("option");
+    opt.value = bulan;
+    opt.textContent = bulan;
+    dobBln.appendChild(opt);
+  });
+
+  const currentYear = new Date().getFullYear();
+  const maxYear = currentYear - 13;
+  for (let y = maxYear; y >= 1975; y--) {
+    const opt = document.createElement("option");
+    opt.value = y;
+    opt.textContent = y;
+    dobThn.appendChild(opt);
+  }
+
+  updateDays();
+  dobBln.addEventListener("change", updateDays);
+  dobThn.addEventListener("change", updateDays);
+}
 
 const preventCloseHandler = (e) => {
   e.preventDefault();
@@ -96,6 +160,26 @@ form.addEventListener("submit", (e) => {
     const customProdi = prodiLainnya ? prodiLainnya.value.trim() : "";
     formData.set("prodi", customProdi || "Mahasiswa Luar Kampus");
   }
+
+  // Gabungkan Tempat & Tanggal Lahir (TTL)
+  const tempatLahir = document.getElementById("tempat_lahir")?.value.trim() || "";
+  const tglVal = dobTgl?.value || "";
+  const blnVal = dobBln?.value || "";
+  const thnVal = dobThn?.value || "";
+
+  let tglFormatted = "";
+  if (tglVal && blnVal && thnVal) {
+    tglFormatted = `${tglVal} ${blnVal} ${thnVal}`;
+  }
+
+  let finalTTL = "";
+  if (tempatLahir && tglFormatted) {
+    finalTTL = `${tempatLahir}, ${tglFormatted}`;
+  } else {
+    finalTTL = tempatLahir || tglFormatted;
+  }
+
+  formData.set("ttl", finalTTL);
   fetch(scriptURL, { method: "POST", body: formData })
     .then((res) => res.json())
     .then((data) => {
