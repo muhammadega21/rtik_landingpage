@@ -38,7 +38,7 @@ waInput.addEventListener("input", function () {
 });
 
 const scriptURL =
-  "https://script.google.com/macros/s/AKfycbz011yVO2MS8cUxgURoqq7-84ZDpcpSMRefRTE2rXSl0lmEiRltQBNoyxbox1Ww_RtD2g/exec";
+  "https://script.google.com/macros/s/AKfycbwRLDx4Kq4sxrVHfp4Sot9JhKt05IGak-XUBX-RDx6ONbTtucx3s5rjtpI19T5VjZ_Gfw/exec";
 const form = document.getElementById("daftarForm");
 const submitBtn = form.querySelector('button[type="submit"]');
 const originalBtnText = submitBtn.innerHTML;
